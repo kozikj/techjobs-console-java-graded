@@ -32,9 +32,7 @@ public class TechJobs {
 
             String actionChoice = getUserSelection("View jobs by (type 'x' to quit):", actionChoices);
 
-            if (actionChoice == null) {
-                break;
-            } else if (actionChoice.equals("list")) {
+            if (actionChoice.equals("list")) {
 
                 String columnChoice = getUserSelection("List", columnChoices);
 
@@ -119,7 +117,22 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        for (HashMap<String, String> name : someJobs) {
+            System.out.println("");
+            System.out.println("*****");
+            for (Map.Entry<String, String> object : name.entrySet()) {
+                String key = object.getKey();
+                String value = object.getValue();
+                System.out.println(key + ": " + value);
+            }
+            System.out.println("*****");
+        }
 
-        System.out.println("printJobs is not implemented yet");
+        if (someJobs.isEmpty()) {
+            System.out.println("No results");
+        } else {
+            System.out.println("");
+        }
+
     }
 }
